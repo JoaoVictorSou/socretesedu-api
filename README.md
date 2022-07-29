@@ -1,9 +1,10 @@
 # socretesedu-api
 API para uma escola fictícia utilizando o framework, de Python, Django Rest. Inspirado no primeiro curso de Django Rest da Alura.
 
-## Para prosseguir utilizando a aplicação é necessário que tenha instalado em sua máquina alguns pacotes, juntamente com o interpretador do Python
+## Para prosseguir utilizando a aplicação
+É necessário que tenha instalado em sua máquina alguns pacotes, juntamente com o interpretador do Python
 [Instale o interpretador do Python](https://www.python.org/downloads/)
-### Com o Python e o gerenciador de pacotes PIP na máquina, instale as dependências do projeto
+### instale as dependências do projeto
 ```
 pip install -r requirements.txt
 ```
