@@ -1,0 +1,5 @@
+# Cache da linguagem
+__pycache__
+
+# Ambiente de desenvolvimento
+venv
