@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from util.mysql import password
+import pymysql
 import os, sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'aluno',
+    'curso',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,10 +83,14 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+pymysql.install_as_MySQLdb() # Drive de conexão com o banco de dados
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'socretesedu',
+        'USER': 'root',
+        'PASSWORD': password,
+        'HOST': '127.0.0.1',
     }
 }
 
