@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os, sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,13 +32,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'aluno',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', # Para a utilização do Django Rest
 ]
+
+# Reconfigurando local que o Django deve buscar os apps
+PROJECT_ROOT = os.path.dirname(__file__) # Pasta do arquivo atual
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "../apps")) # Entrando na pasta dos apps
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
