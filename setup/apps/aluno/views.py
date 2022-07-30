@@ -1,6 +1,12 @@
-from django.http import JsonResponse
+from rest_framework import viewsets
+from .models import Aluno
+from .serializer import AlunoSerializer
 
 # Create your views here.
 
-def alunos(request):
-    return JsonResponse({'teste': 1})
+class AlunosViewSet(viewsets.ModelViewSet):
+    """
+    Exibe todos os alunos(a) do SocretesEdu.
+    """
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
