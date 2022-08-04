@@ -1,6 +1,8 @@
 from rest_framework import viewsets
 from .models import Aluno, Matricula
 from .serializer import AlunoSerializer, MatriculaSerializer, ListaMatriculasAlunoSerializer, ListaMatriculasCursoSerializer
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -10,10 +12,14 @@ class AlunosViewSet(viewsets.ModelViewSet):
     """
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 class MatriculasViewSet(viewsets.ModelViewSet):
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 class ListaMatriculasAlunos(viewsets.generics.ListAPIView):
     """
@@ -24,6 +30,8 @@ class ListaMatriculasAlunos(viewsets.generics.ListAPIView):
         return queryset
     
     serializer_class = ListaMatriculasAlunoSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 class ListaMatriculadosCurso(viewsets.generics.ListAPIView):
     """
@@ -35,3 +43,5 @@ class ListaMatriculadosCurso(viewsets.generics.ListAPIView):
         return queryset
     
     serializer_class = ListaMatriculasCursoSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
